@@ -1,0 +1,19 @@
+font-family = "Berkeley Mono Variable"
+font-size = 16
+bold-is-bright = true
+cursor-style-blink = false
+
+window-title-font-family= "PragmataPro Mono"
+window-decoration = client
+
+#macos-titlebar-style = tabs
+macos-icon = retro
+window-colorspace = "display-p3"
+background = 1C2021
+macos-titlebar-style = transparent
+
+# extras
+shell-integration-features = true
+copy-on-select = clipboard
+focus-follows-mouse = true
+link-url = true

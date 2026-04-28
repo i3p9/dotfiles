@@ -1,0 +1,14 @@
+# Secrets — never commit
+.env
+.env.zsh
+**/secrets/
+**/*credentials*
+**/*.key
+**/*.pem
+
+# OS / editor cruft
+.DS_Store
+*~
+*.swp
+.idea/
+.vscode/

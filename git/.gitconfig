@@ -1,0 +1,23 @@
+# This is Git's per-user configuration file.
+[user]
+	name = i3p9
+	email = i3p9@users.noreply.github.com
+# Please adapt and uncomment the following lines:
+#	name = i3p9
+#	email = i3p9@users.noreply.github.com
+[core]
+	editor = nano
+	excludesfile = /Users/fahim/.gitignore_global
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/fahim/.stCommitMsg
