@@ -6,17 +6,17 @@ Each top-level folder is a "package" — its contents mirror the path in
 
 ## Layout
 
-| Package   | Symlinks to                                         |
-| --------- | --------------------------------------------------- |
-| `zsh`     | `~/.zshrc`, `~/.zshenv`, `~/.zprofile`              |
-| `ghostty` | `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` |
-| `git`     | `~/.gitconfig`, `~/.gitignore_global`, `~/.config/git/ignore` |
-| `claude`  | `~/.claude/{settings.json,settings.local.json,mcp.json,agents,commands}` |
-| `btop`    | `~/.config/btop/btop.conf`                          |
-| `mpv`     | `~/.config/mpv/mpv.conf`                            |
-| `ssh`     | `~/.ssh/config` (only — keys live in your password manager) |
+| Package   | Symlinks to                                                                         |
+| --------- | ----------------------------------------------------------------------------------- |
+| `zsh`     | `~/.zshrc`, `~/.zshenv`, `~/.zprofile`                                              |
+| `ghostty` | `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty`                |
+| `git`     | `~/.gitconfig`, `~/.gitignore_global`, `~/.config/git/ignore`                       |
+| `claude`  | `~/.claude/{settings.json,settings.local.json,mcp.json,agents,commands}`            |
+| `btop`    | `~/.config/btop/btop.conf`                                                          |
+| `mpv`     | `~/.config/mpv/mpv.conf`                                                            |
+| `ssh`     | `~/.ssh/config` (only — keys live in your password manager)                         |
 | `vscode`  | `~/Library/Application Support/Code/User/{settings.json,keybindings.json,snippets}` |
-| `server`  | server-side configs (not stowed — copy manually where needed) |
+| `server`  | server-side configs (not stowed — copy manually where needed)                       |
 
 ## Fresh-machine setup
 
