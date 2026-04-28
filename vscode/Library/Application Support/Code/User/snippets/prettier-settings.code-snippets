@@ -1,0 +1,45 @@
+{
+	"Prettier Configuration": {
+		"prefix": "prettier-config",
+		"description": "Add Prettier configuration with tab settings",
+		"body": [
+			"module.exports = {",
+			"\ttabWidth: 4,",
+			"\tuseTabs: true,",
+			"\tsemi: true,",
+			"\tsingleQuote: false,",
+			"\ttrailingComma: \"es5\",",
+			"\tbracketSpacing: true,",
+			"\tarrowParens: \"always\",",
+			"\tprintWidth: 80,",
+			"\tendOfLine: \"lf\"",
+			"};"
+		]
+	},
+	"VS Code Prettier Settings": {
+		"prefix": "vscode-prettier-settings",
+		"description": "Add VS Code settings for Prettier with tab configuration",
+		"body": [
+			"{",
+			"\t\"editor.defaultFormatter\": \"esbenp.prettier-vscode\",",
+			"\t\"editor.formatOnSave\": true,",
+			"\t\"prettier.useTabs\": true,",
+			"\t\"prettier.tabWidth\": 4,",
+			"\t\"prettier.singleQuote\": false,",
+			"\t\"prettier.semi\": true,",
+			"\t\"prettier.trailingComma\": \"es5\",",
+			"\t\"prettier.bracketSpacing\": true,",
+			"\t\"prettier.arrowParens\": \"always\",",
+			"\t\"prettier.printWidth\": 80,",
+			"\t\"[typescript]\": {",
+			"\t\t\"editor.defaultFormatter\": \"esbenp.prettier-vscode\",",
+			"\t\t\"editor.formatOnSave\": true",
+			"\t},",
+			"\t\"[javascript]\": {",
+			"\t\t\"editor.defaultFormatter\": \"esbenp.prettier-vscode\",",
+			"\t\t\"editor.formatOnSave\": true",
+			"\t}",
+			"}"
+		]
+	}
+}

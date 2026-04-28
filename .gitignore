@@ -6,6 +6,10 @@
 **/*.key
 **/*.pem
 
+# SSH: only the config file is allowed in this repo. Block everything else.
+ssh/.ssh/*
+!ssh/.ssh/config
+
 # OS / editor cruft
 .DS_Store
 *~

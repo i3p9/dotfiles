@@ -11,6 +11,11 @@ Each top-level folder is a "package" — its contents mirror the path in
 | `zsh`     | `~/.zshrc`, `~/.zshenv`, `~/.zprofile`              |
 | `ghostty` | `~/Library/Application Support/com.mitchellh.ghostty/config.ghostty` |
 | `git`     | `~/.gitconfig`, `~/.gitignore_global`, `~/.config/git/ignore` |
+| `claude`  | `~/.claude/{settings.json,settings.local.json,mcp.json,agents,commands}` |
+| `btop`    | `~/.config/btop/btop.conf`                          |
+| `mpv`     | `~/.config/mpv/mpv.conf`                            |
+| `ssh`     | `~/.ssh/config` (only — keys live in your password manager) |
+| `vscode`  | `~/Library/Application Support/Code/User/{settings.json,keybindings.json,snippets}` |
 | `server`  | server-side configs (not stowed — copy manually where needed) |
 
 ## Fresh-machine setup
@@ -25,7 +30,7 @@ git clone https://github.com/i3p9/dotfiles.git ~/dotfiles
 
 # 3. Symlink everything into $HOME
 cd ~/dotfiles
-stow zsh ghostty git
+stow zsh ghostty git claude btop mpv ssh vscode
 
 # 4. Restore secrets (NOT in this repo — kept separately)
 #    Copy your ~/.env.zsh from secure backup. ~/.zshrc sources it.
