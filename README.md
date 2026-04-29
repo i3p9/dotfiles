@@ -14,11 +14,13 @@ Each top-level folder is a "package" — its contents mirror the path in
 | `claude`  | `~/.claude/{settings.json,settings.local.json,mcp.json,agents,commands}`            |
 | `btop`    | `~/.config/btop/btop.conf`                                                          |
 | `mpv`     | `~/.config/mpv/mpv.conf`                                                            |
+| `tvnamer` | `~/.config/tvnamer/tvnamer.json`                                                    |
 | `ssh`     | `~/.ssh/config` (only — keys live in your password manager)                         |
 | `vscode`  | `~/Library/Application Support/Code/User/{settings.json,keybindings.json,snippets}` |
 | `server`  | server-side configs (not stowed — copy manually where needed)                       |
 | `bettertouchtool` | BTT preset bundle (`.bttpreset`) — imported via the BTT GUI, not stowed       |
 | `raycast` | Raycast `.rayconfig` export — imported via the Raycast GUI, not stowed              |
+| `iina`    | IINA prefs plist snapshot — imported via `defaults import`, not stowed              |
 
 Top-level files (not stow packages):
 
@@ -42,7 +44,7 @@ git clone https://github.com/i3p9/dotfiles.git ~/dotfiles
 
 # 3. Symlink everything into $HOME
 cd ~/dotfiles
-stow zsh ghostty git claude btop mpv ssh vscode
+stow zsh ghostty git claude btop mpv tvnamer ssh vscode
 
 # 4. Install everything in the Brewfile (formulae, casks, VS Code extensions)
 brew bundle --file=~/dotfiles/Brewfile
@@ -54,6 +56,8 @@ brew bundle --file=~/dotfiles/Brewfile
 # 7. Re-import GUI app configs:
 #    - BetterTouchTool: open the .bttpreset in `bettertouchtool/` (BTT → Manage Presets → Import)
 #    - Raycast: open the .rayconfig in `raycast/` (Raycast → Settings → Advanced → Import)
+#    - IINA: defaults import com.colliderli.iina ~/dotfiles/iina/com.colliderli.iina.plist
+#      (quit IINA first; then `killall cfprefsd` so it picks up the new plist)
 
 # 8. Reinstall Node versions + globals from dev-versions.txt
 #    (e.g. nvm install 24, then npm i -g <packages>)
@@ -104,6 +108,18 @@ or `Manage Presets → Import`.
 **Raycast** — `Raycast → Settings → Advanced → Export`. Choose a password
 (remember it — the file is encrypted with it). Save the `.rayconfig` into
 `raycast/` and commit. Restore: `Settings → Advanced → Import`, enter password.
+
+**IINA** — preferences plist (UI layout, keybinds, plugin toggles). Re-export
+from the CLI after meaningful changes:
+
+```sh
+defaults export com.colliderli.iina ~/dotfiles/iina/com.colliderli.iina.plist
+```
+
+The actual mpv settings IINA uses live in `~/.config/mpv/mpv.conf` (the `mpv`
+package — already stowed). IINA reads that path because `useUserDefinedConfDir`
+is on. Plugin auth state (e.g. Jellyfin session token, OpenSubtitles login)
+is intentionally **not** captured — re-authenticate after restore.
 
 ## SSH keys
 

@@ -40,7 +40,8 @@ echo "→ Destination: $DEST"
 echo "→ Excludes:    $EXCLUDES"
 echo
 
-rsync -aHvh --delete --stats \
+rsync -aHh --delete --stats \
+  --info=progress2 \
   --exclude-from="$EXCLUDES" \
   "$@" \
   "$HOME/" "$DEST/"
