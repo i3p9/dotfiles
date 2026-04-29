@@ -1,0 +1,67 @@
+# rsync exclude patterns for backing up $HOME to an external drive.
+# Usage:
+#   rsync -aHv --delete --exclude-from=~/dotfiles/backup-excludes.txt \
+#         ~/ /Volumes/BackupSSD/home/
+
+# --- Build / dependency caches (reinstall, don't restore) ---
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+target/                 # rust
+.next/
+.nuxt/
+.turbo/
+.parcel-cache/
+.cache/
+dist/
+build/
+out/
+.gradle/
+.m2/
+Pods/
+
+# --- Tooling state (reinstall fresh) ---
+.nvm/                   # huge — restore from dev-versions.txt instead
+.cargo/registry/
+.cargo/git/
+.rustup/toolchains/
+.docker/
+Library/Containers/com.docker.docker/
+.gem/
+.bundle/
+
+# --- macOS junk ---
+.DS_Store
+.Trash/
+.Spotlight-V100/
+.Trashes/
+
+# --- Big synced folders (already in iCloud / cloud) ---
+Library/Mobile Documents/    # iCloud Drive
+Library/CloudStorage/        # Dropbox/Google Drive/etc
+Pictures/Photos Library.photoslibrary/   # syncs via iCloud Photos
+Music/Music/Media.localized/             # Apple Music cache
+
+# --- Caches & logs ---
+Library/Caches/
+Library/Logs/
+.cache/
+*.log
+
+# --- Browser caches (re-downloadable) ---
+Library/Application Support/Google/Chrome/*/Cache/
+Library/Application Support/Firefox/Profiles/*/cache2/
+
+# --- Sensitive: do NOT back up plaintext, use a password manager ---
+# Comment these out if you have an encrypted backup destination.
+.ssh/id_*
+.ssh/*_rsa
+.ssh/*_ed25519
+.ssh/hetzner
+.aws/credentials
+.gnupg/

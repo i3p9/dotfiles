@@ -1,0 +1,75 @@
+# Apps not in Brewfile — install manually after `brew bundle`.
+# Edit freely; sources are best-guess and may need correcting.
+
+## Mac App Store
+# (Install `mas` if you want to script these: brew install mas)
+AllMyBatteries
+AmorphousDiskMark
+Blackmagic Disk Speed Test
+ColorSlurp
+CrystalFetch
+Infuse
+Medis
+Movist Pro
+PhotoScapeX
+Shazam
+VN — Video Editor
+Windows App           # Microsoft's Remote Desktop replacement
+Xcode
+
+## Direct download — free / open source
+Ente Auth             # https://ente.io/auth
+Firefox               # https://www.mozilla.org/firefox/
+FreeScaler            # https://freescaler.com/
+ImageOptim            # https://imageoptim.com/
+JDownloader2          # https://jdownloader.org/download/index
+KeyboardCleanTool     # https://folivora.ai/keyboardcleantool
+LocalSend             # https://localsend.org/
+MediaInfo             # https://mediaarea.net/MediaInfo
+MicMüter              # https://micmuter.app/
+MKVToolNix            # https://mkvtoolnix.download/
+Nicotine+             # https://nicotine-plus.org/
+TigerVNC              # https://tigervnc.org/
+Upscayl               # https://upscayl.org/
+XLD                   # https://tmkk.undo.jp/xld/index_e.html
+
+## Direct download — paid / licensed
+Adobe Acrobat DC      # https://www.adobe.com/acrobat.html
+CrossOver             # https://www.codeweavers.com/crossover
+DaisyDisk             # https://daisydiskapp.com/
+ForkLift              # https://binarynights.com/
+Hopper Disassembler   # https://www.hopperapp.com/
+iStat Menus           # https://bjango.com/mac/istatmenus/
+MediaMate             # https://mediamate.app/
+Mp3tag                # https://mp3tag.app/
+PDF Expert            # https://pdfexpert.com/
+PDF Squeezer          # https://witt-software.com/pdfsqueezer/
+Swinsian              # https://swinsian.com/
+TablePlus             # https://tableplus.com/
+Typora                # https://typora.io/
+
+## Vendor / service installers
+Cloudflare WARP       # already in Brewfile via cask, listed for parity
+MongoDB Compass       # https://www.mongodb.com/products/compass
+NordVPN               # https://nordvpn.com/download/mac/
+Stremio               # https://www.stremio.com/downloads
+Tailscale             # https://tailscale.com/download/macos
+TeamViewer            # https://www.teamviewer.com/
+TeraBox               # https://www.terabox.com/
+Upwork                # https://www.upwork.com/ab/downloads/
+Urban VPN Desktop     # https://www.urban-vpn.com/
+
+## Microsoft 365 (one installer for all)
+Microsoft Word
+Microsoft Excel
+Microsoft PowerPoint
+# https://www.microsoft.com/microsoft-365 — sign-in handles activation
+
+## Work / corporate (may not apply on personal machines)
+Crestron AirMedia
+FortiClient
+
+## Bundled / system (don't install separately)
+# Chrome Remote Desktop Host Uninstaller — bundled with Chrome Remote Desktop
+# FortiClientUninstaller — bundled with FortiClient
+# Safari, TestFlight — ship with macOS

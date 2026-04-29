@@ -99,7 +99,6 @@ npm()  { _nvm_lazy_load; npm  "$@"; }
 npx()  { _nvm_lazy_load; npx  "$@"; }
 yarn() { _nvm_lazy_load; yarn "$@"; }
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
-export PATH="/Applications/MEGAcmd.app/Contents/MacOS:$PATH"
 # pnpm
 export PNPM_HOME="/Users/fahim/Library/pnpm"
 case ":$PATH:" in
@@ -145,6 +144,3 @@ if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/home
 if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
 
 alias claude2="CLAUDE_CONFIG_DIR=~/.claude2 claude"
-
-# Added by Antigravity
-export PATH="/Users/fahim/.antigravity/antigravity/bin:$PATH"

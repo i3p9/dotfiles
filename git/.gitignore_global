@@ -1,2 +1,35 @@
+# Global gitignore — symlinked to ~/.gitignore_global by stow.
+# Patterns here are silently ignored across every repo on this machine.
+
+# OS / editor cruft
 *~
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+.cursor/
+
+# Dependency / build dirs (almost never want these committed)
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+target/
+.next/
+.nuxt/
+.turbo/
+.parcel-cache/
+dist/
+build/
+out/
+
+# Env files (real secrets — repo-local .gitignore should also list these)
+.env
+.env.local
+.env.*.local

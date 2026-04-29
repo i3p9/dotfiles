@@ -1,0 +1,54 @@
+# Snapshot of language-runtime versions + globally installed packages.
+# Re-generate with: ~/dotfiles/scripts/dump-dev-versions.sh
+# (Or just `nvm ls` + `npm ls -g` per version, `pipx list --short`.)
+#
+# Restore notes:
+#   - nvm itself: install via https://github.com/nvm-sh/nvm, then
+#       `nvm install <version>` for each line below.
+#   - npm globals: `nvm use <v>` then `npm i -g <pkg>@<ver>` per package.
+#   - pipx: `brew install pipx && pipx install <pkg>`.
+#   - cargo: handled by the Brewfile (cargo entries at the bottom).
+
+============================== nvm ==============================
+Active default: v24.13.0  (lts/*)
+
+Versions installed:
+  v16.20.0
+  v18.16.1
+  v20.18.0
+  v20.20.0
+  v22.19.0
+  v23.11.0
+  v24.13.0   ← current default
+
+Global npm packages per version (only versions with non-default packages):
+
+--- v16.20.0 ---
+  @anthropic-ai/claude-code@1.0.67
+  corepack@0.17.0
+
+--- v18.16.1 ---
+  corepack@0.17.0
+  new-component@5.0.2
+  nodemon@3.0.1
+  wrangler@3.3.0
+
+--- v20.18.0 ---  (only npm + corepack)
+--- v20.20.0 ---  (only npm + corepack)
+
+--- v22.19.0 ---
+  @anthropic-ai/claude-code@2.0.62
+  @google/gemini-cli@0.17.1
+  @openai/codex@0.63.0
+  react-devtools@7.0.1
+
+--- v23.11.0 ---  (only npm + corepack)
+
+--- v24.13.0 ---
+  @openai/codex@0.106.0
+
+============================== pipx =============================
+  subliminal      # subtitle downloader
+
+============================== cargo ============================
+# Tracked in the Brewfile (cargo "mdbook", etc.) — no action here.
