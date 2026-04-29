@@ -58,10 +58,16 @@ brew bundle --file=~/dotfiles/Brewfile
 # 8. Reinstall Node versions + globals from dev-versions.txt
 #    (e.g. nvm install 24, then npm i -g <packages>)
 
-# 9. Restore secrets (NOT in this repo — kept separately)
-#    Copy your ~/.env.zsh from secure backup. ~/.zshrc sources it.
+# 9. Apply macOS preferences (Dock, Finder, screenshots, etc.):
+~/dotfiles/scripts/macos-defaults.sh
 
-# 10. Open a new shell. Done.
+# 10. Restore custom fonts (binaries kept out of repo — see fonts.txt):
+cp ~/Keys/fonts/*.{otf,ttf} ~/Library/Fonts/
+
+# 11. Restore secrets (NOT in this repo — kept separately)
+#     Copy your ~/.env.zsh from secure backup. ~/.zshrc sources it.
+
+# 12. Open a new shell. Done.
 ```
 
 ## Updating the Brewfile
@@ -141,18 +147,25 @@ forward.
 
 ## Backing up `$HOME` to an external drive
 
-Use the rsync exclude list to skip `node_modules`, build caches, `.nvm/`, etc.:
+Use the wrapper script — backs up only the visible top-level folders
+(`codes`, `Documents`, `Downloads`, `Movies`, `Music`, `Pictures`, `dotfiles`,
+`Keys`, etc.) and skips all hidden dotdirs, `bin`, `opt`, `Applications`,
+`Library`, `overrides_chrome`, plus recursive junk (`node_modules`, build
+caches, `.DS_Store`):
 
 ```sh
-rsync -aHv --delete \
-  --exclude-from=~/dotfiles/backup-excludes.txt \
-  ~/ /Volumes/BackupSSD/home/
+# Always dry-run first
+~/dotfiles/scripts/backup-home.sh /Volumes/BackupSSD/home --dry-run
+
+# Then for real
+~/dotfiles/scripts/backup-home.sh /Volumes/BackupSSD/home
 ```
 
-Review `backup-excludes.txt` before relying on it — by default it excludes
-`~/.ssh/id_*` so private keys don't end up on a plaintext SSD. Comment those
-lines out only if your destination is encrypted (FileVault on the SSD, or
-an encrypted disk image).
+The script uses `--delete` to mirror — anything in the destination that's no
+longer in `$HOME` gets removed. To tweak what's included/excluded, edit
+`backup-excludes.txt`. The Library exclude is broad — if a specific app stores
+data there that you care about, export it explicitly (BTT/Raycast already
+have a workflow above; for postgres-app, run `pg_dumpall`).
 
 ## Secrets
 

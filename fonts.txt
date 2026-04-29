@@ -1,0 +1,26 @@
+# Custom fonts installed in ~/Library/Fonts/
+# Binaries are NOT in this repo (licensing). They live in ~/Keys/fonts/.
+#
+# Restore on a fresh machine:
+#   cp ~/Keys/fonts/*.{otf,ttf} ~/Library/Fonts/
+# Then re-launch any app that has the font selected so it picks up the new family.
+
+## Paid / licensed (re-download from your purchase if SSD copy is lost)
+Berkeley Mono Variable           # https://berkeleygraphics.com/typefaces/berkeley-mono/
+  - BerkeleyMonoVariable-Regular.ttf
+  - BerkeleyMonoVariable-Italic.ttf
+
+PragmataPro                      # https://fsd.it/shop/fonts/pragmatapro/
+  - PragmataProR / PragmataProB / PragmataProI / PragmataProZ (.ttf, +liga)
+  - PragmataPro_Mono_R/B/I/Z (.ttf, +liga)
+  # 14 files total
+
+Circular Std                     # Lineto — https://lineto.com/typefaces/circular
+  - Black, Bold, Book, Light, Medium (+ italics) — 10 files
+
+## Free / freely distributed
+Netflix Sans                     # Netflix internal font — search "Netflix Sans download"
+  - Netflix Sans Bold / Light / Medium .otf
+
+SF Alien Encounters              # Free display font — dafont.com
+  - SFAlienEncounters / Solid (+ italics) — 4 files

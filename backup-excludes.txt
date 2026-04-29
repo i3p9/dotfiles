@@ -1,9 +1,37 @@
 # rsync exclude patterns for backing up $HOME to an external drive.
-# Usage:
+# Usage (or just run: ~/dotfiles/scripts/backup-home.sh /Volumes/BackupSSD/home):
 #   rsync -aHv --delete --exclude-from=~/dotfiles/backup-excludes.txt \
 #         ~/ /Volumes/BackupSSD/home/
+#
+# Note: rsync does NOT strip trailing comments after a pattern, so all
+# comments must be on their own lines.
 
-# --- Build / dependency caches (reinstall, don't restore) ---
+# ─── Top-level skips (anchored to $HOME root) ───
+
+# All hidden dot-entries at $HOME root: .config, .cache, .aws, .nvm, .docker,
+# .ssh, etc. Real configs live in ~/dotfiles; secrets in ~/Keys; the rest is
+# rebuildable. (Hidden dirs nested inside backed-up folders, like project
+# .git/ dirs, are NOT affected — only the leading-slash anchors to root.)
+/.*
+
+# Custom user binaries — keep them in dotfiles or reinstall.
+/bin/
+
+# User-managed packages, often large + reinstallable.
+/opt/
+
+# User-installed apps — covered by Brewfile + manual-apps.txt.
+/Applications/
+
+# Massive, mostly caches/DBs; specific app exports handled separately.
+/Library/
+
+# Browser overrides — rebuildable.
+/overrides_chrome/
+
+# ─── Recursive skips (match anywhere under $HOME) ───
+
+# Build / dependency caches (reinstall, don't restore)
 node_modules/
 .venv/
 venv/
@@ -12,7 +40,8 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
-target/                 # rust
+# rust
+target/
 .next/
 .nuxt/
 .turbo/
@@ -25,43 +54,11 @@ out/
 .m2/
 Pods/
 
-# --- Tooling state (reinstall fresh) ---
-.nvm/                   # huge — restore from dev-versions.txt instead
-.cargo/registry/
-.cargo/git/
-.rustup/toolchains/
-.docker/
-Library/Containers/com.docker.docker/
-.gem/
-.bundle/
-
-# --- macOS junk ---
+# macOS junk
 .DS_Store
 .Trash/
 .Spotlight-V100/
 .Trashes/
 
-# --- Big synced folders (already in iCloud / cloud) ---
-Library/Mobile Documents/    # iCloud Drive
-Library/CloudStorage/        # Dropbox/Google Drive/etc
-Pictures/Photos Library.photoslibrary/   # syncs via iCloud Photos
-Music/Music/Media.localized/             # Apple Music cache
-
-# --- Caches & logs ---
-Library/Caches/
-Library/Logs/
-.cache/
+# Caches & logs
 *.log
-
-# --- Browser caches (re-downloadable) ---
-Library/Application Support/Google/Chrome/*/Cache/
-Library/Application Support/Firefox/Profiles/*/cache2/
-
-# --- Sensitive: do NOT back up plaintext, use a password manager ---
-# Comment these out if you have an encrypted backup destination.
-.ssh/id_*
-.ssh/*_rsa
-.ssh/*_ed25519
-.ssh/hetzner
-.aws/credentials
-.gnupg/
